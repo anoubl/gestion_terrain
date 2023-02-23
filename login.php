@@ -12,6 +12,7 @@ if(isset($_POST['submit']))
         foreach($row as $row)
         {
             echo "welcome ".$row['prenom']." ".$row['nom'];
+            //reda
         }
      }
      else
