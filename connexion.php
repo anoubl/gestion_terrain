@@ -11,4 +11,5 @@ function rederiger($name)
 {
     header("location:$name");
 }
+//this is function
 ?>
