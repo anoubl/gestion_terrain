@@ -38,7 +38,8 @@ $time=[
     <title>Document</title>
 </head>
 <body>
-<table class="table">
+
+<table  class="table table-striped">
 <thead>
 <th>Time</th>
 <th>Etat</th>
@@ -47,7 +48,7 @@ $time=[
     for($i=0;$i<15;$i++)
     {
     ?>
-    <tr>
+    <tr >
 
             <td><?php echo $time[$i]."-".$time[$i+1];?></td>
     <td>
@@ -58,13 +59,13 @@ $time=[
         if($result==0)
         {
             ?>
-            <td><button type="button" class="btn btn-success"><a href="cassucces.php?time=<?php echo $time[$i];?>">Disponible</a></button></td>
+            <td ><a class="btn btn-success" href="cassucces.php?time=<?php echo $time[$i];?>">Disponible</a></td>
         <?php
         }
         else
         {
         ?>
-        <button type="button" class="btn btn-danger">Danger</button>
+      <td class="table-danger">occuper</td>
             <?php
         }
         ?>
