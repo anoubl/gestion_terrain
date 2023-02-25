@@ -15,9 +15,8 @@ if(isset($_POST['submit']))
             //reda
         }
      }
-     else
-     {
-        rederiger("index.php?tst=passoremail");
+     else {
+         rederiger("index.php?tst=passoremail");
      }
 }
 ?>
