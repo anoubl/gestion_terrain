@@ -19,6 +19,21 @@ class users extends connection
         }
         return -1;
     }
+    public  function  get_name($id)
+    {
+        $con=$this->connection();
+        $sql="select prenom,nom from users where id='$id'";
+        $resultat=$con->query($sql);
+        if($resultat->rowcount()>0)
+        {
+            $row=$resultat->fetchall();
+            foreach($row as $row)
+            {
+                return $row['prenom']." ".$row['nom'];
+            }
+        }
+        return -1;
+    }
 public function  add($prenom,$nom,$dob,$email,$password)
 {
     $con=$this->connection();

@@ -4,16 +4,38 @@ if(isset($_GET['tst']))
     $tst=$_GET['tst'];
     if($tst=="sql")
     {
-        echo "<script>alert('Please try again');</script>";   
+        echo "
+      <div class='container'>
+    <div class='alert alert-warning alert-dismissable'>
+    <a class='close' data-dismiss='alert' aria-label='close'>×</a>
+    <strong>Please try again</strong>
+</div>
+        
+        ";
      }
      if($tst=="pass")
      {
-        echo "<script>alert('mot de passe un doit etre identique avec le mot de passe deux');</script>";
+         echo "
+      <div class='container'>
+    <div class='alert alert-warning alert-dismissable'>
+    <a class='close' data-dismiss='alert' aria-label='close'>×</a>
+    <strong>les mots de passe doivent être identiques</strong>
+</div>
+        
+        ";
+
 
      }
      if($tst=="name")
      {
-        echo "<script>alert('le nom et le prenom doit etre contient au moins trois caracteres'); </script>";
+         echo "
+      <div class='container'>
+    <div class='alert alert-warning alert-dismissable'>
+    <a class='close' data-dismiss='alert' aria-label='close'>×</a>
+    <strong>le nom et le prénom doit etre contient au moins trois Caractères</strong>
+</div>
+        
+        ";
 
      }
      $tst=null;
@@ -31,6 +53,7 @@ if(isset($_GET['tst']))
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     <style>
 
         form {
@@ -70,6 +93,9 @@ if(isset($_GET['tst']))
     </style>
 </head>
 <body>
+
+
+</div>
 <div class="container">
     <form method="POST" action="inscription_verefier.php" class="row g-3 needs-validation text-center" novalidate>
     <div class="col-md-4">

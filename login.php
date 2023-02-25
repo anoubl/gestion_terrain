@@ -11,10 +11,13 @@ if(isset($_POST['submit']))
     {
         $_SESSION['id']=$resultat;
         $user->rederiger('apres_login.php');
+        $name=$user->get_name($resultat);
+        $_SESSION['fullname']=$name;
+        $_SESSION['valeur']=true;
     }
     else
     {
-        $user->rederiger('index.php');
+        $user->rederiger('index.php?tst=passoremail');
     }
 }
 ?>
