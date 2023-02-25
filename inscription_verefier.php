@@ -1,5 +1,6 @@
 <?php
-require('connexion.php');
+require 'models/users.php';
+$user=new users();
         if(isset($_POST['submit']))
         {
     $email=$_POST['email'];
@@ -12,9 +13,8 @@ require('connexion.php');
     {
          if($password1==$password2 )
     {
-        $sql="INSERT INTO `users`(`id`, `prenom`, `nom`, `dob`, `email`, `password`) VALUES(null,'$prenom','$nom','$dob','$email','$password1') ";
-        $resultat=$con->exec($sql);
-        if($resultat)
+        $resultat= $user->add($prenom,$nom,$dob,$email,$password1);
+        if($resultat == 1)
         {
              header("location:index.php?tst=true");
         }

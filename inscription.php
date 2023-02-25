@@ -32,24 +32,46 @@ if(isset($_GET['tst']))
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <style>
-        form
-        {
-            margin:5px;
 
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        input {
-            width: 100px;
+
+        input[type="submit"] {
+            margin-top: 10px;
         }
-        body {
-            display: inline-block;
-            margin: 0px auto;
-            text-align: center;
+
+        input:invalid {
+            border-color: red;
         }
+
+        input:valid {
+            border-color: green;
+        }
+
+        input:invalid + span::before {
+            content: "❌ ";
+        }
+
+        input:valid + span::before {
+            content: "✅ ";
+        }
+
+        input:invalid + span {
+            color: red;
+        }
+
+        input:valid + span {
+            color: green;
+        }
+
     </style>
 </head>
 <body>
-
-<form method="POST" action="inscription_verefier.php" class="row g-3 needs-validation text-center" novalidate>
+<div class="container">
+    <form method="POST" action="inscription_verefier.php" class="row g-3 needs-validation text-center" novalidate>
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">Prenom</label>
         <input type="text" name="prenom" class="form-control" id="validationCustom01"  required>
@@ -117,5 +139,7 @@ if(isset($_GET['tst']))
     </div>
     </div>
 </form>
+    </div>
+</div>
 </body>
 </html>
