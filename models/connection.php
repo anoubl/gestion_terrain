@@ -10,5 +10,4 @@ public function  connection()
 {
     return new pdo("mysql:host=$this->servername;dbname=$this->dbname",$this->username,$this->password);
 }
-
 }
