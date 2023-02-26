@@ -80,7 +80,7 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
 
                                     </div>
                                     <div class="position">
-                                        <img  onclick="print();" class="btn btn-primary" width="50" height="50" src="img/print.png" alt=""></img>
+                                        <img  onclick="print();" class="btn " width="50" height="50" src="img/print.png" alt=""></img>
                                         <a href="apres_login.php">
                                             <img width="30" height="30" src="img/back.png" alt="">
                                         </a>
