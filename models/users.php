@@ -34,10 +34,10 @@ class users extends connection
         }
         return -1;
     }
-public function  add($prenom,$nom,$dob,$email,$password)
+public function  add($prenom,$nom,$dob,$email,$password,$chemin)
 {
     $con=$this->connection();
-    $sql="INSERT INTO `users`(`id`, `prenom`, `nom`, `dob`, `email`, `password`) VALUES(null,'$prenom','$nom','$dob','$email','$password') ";
+    $sql="INSERT INTO `users`(`id`, `prenom`, `nom`, `dob`, `email`, `password`,`file`) VALUES(null,'$prenom','$nom','$dob','$email','$password','$chemin') ";
     $result=$con->exec($sql);
     if($result)
     {
@@ -75,4 +75,5 @@ public  function  search($id)
     {
         header("Location:$name");
     }
+
 }

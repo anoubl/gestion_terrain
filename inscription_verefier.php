@@ -9,11 +9,16 @@ $user=new users();
     $password1=$_POST['pass1'];
     $password2=$_POST['pass2'];
     $dob=$_POST['dob'];
+            $file="uploads/".$_FILES['image']['name'];
+            $name=$_FILES['image']['name'];
+            $tmp=$_FILES['image']['tmp_name'];
+            move_uploaded_file($tmp,'uploads/'.$name);
     if( strlen($prenom)>2 &&  strlen($nom)>2)
     {
          if($password1==$password2 )
     {
-        $resultat= $user->add($prenom,$nom,$dob,$email,$password1);
+
+        $resultat= $user->add($prenom,$nom,$dob,$email,$password1,$file);
         if($resultat == 1)
         {
              header("location:index.php?tst=true");

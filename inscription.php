@@ -97,7 +97,7 @@ if(isset($_GET['tst']))
 
 </div>
 <div class="container">
-    <form method="POST" action="inscription_verefier.php" class="row g-3 needs-validation text-center" novalidate>
+    <form method="POST" enctype="multipart/form-data" action="inscription_verefier.php" class="row g-3 needs-validation text-center" novalidate>
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">Prenom</label>
         <input type="text" name="prenom" class="form-control" id="validationCustom01"  required>
@@ -113,6 +113,13 @@ if(isset($_GET['tst']))
             Looks good!
         </div>
     </div>
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Votre image</label>
+            <input type="file" name="image" class="form-control" id="validationCustom01" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
     <div class="w-100"></div>
     <div class="col-md-4">
         <label for="validationCustomUsername" class="form-label">email</label>

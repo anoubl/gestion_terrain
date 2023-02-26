@@ -30,6 +30,7 @@ $id=$_SESSION['id'];
 <body>
 
 <div class="container">
+    <h1 class="text-primary">La liste des reservation</h1>
     <table class="table align-middle mb-0 bg-white">
         <thead>
         <th>Full Name</th>

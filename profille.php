@@ -52,10 +52,10 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
                         <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center text-white"
                                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                                     alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                <img src="<?php echo $row['file'];?>"
+                                     class="img-fluid my-5" style="width: 80px;" />
                                <!-- name --> <h5><?php echo $row['prenom']." ".$row['nom']; ?></h5>
-                                <i class="far fa-edit mb-5"></i>
+
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">
