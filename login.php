@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
     if($resultat!=-1)
     {
         $_SESSION['id']=$resultat;
-        $user->rederiger('apres_login.php');
+        $user->rederiger('home.php');
         $name=$user->get_name($resultat);
         $_SESSION['fullname']=$name;
         $_SESSION['valeur']=true;

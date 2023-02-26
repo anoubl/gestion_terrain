@@ -29,12 +29,10 @@ $id=$_SESSION['id'];
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
         }
-        .position
-        {
-            float:top;
-        }
-    </style>
 
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="file.js"></script>
 </head>
 <body>
 <?php
@@ -43,9 +41,31 @@ $sql="SELECT * FROM `users` where id='$id'";
 $resultat=$con->query($sql);
 $row = $resultat->fetch(PDO::FETCH_ASSOC);;
 ?>
-<div class="containner">
-    <section class="vh-100" style="background-color: #f4f5f7;">
+
+<div class="container">
+</div>
+
         <div class="container py-5 h-100">
+            <div class="position">
+
+                <a class="btn " href="home.php">
+                    <img width="20" height="20" src="img/home.png"title="Home">
+                </a>
+                <a class="btn " href="reserver.php">
+                    <img width="20" height="20" src="img/reserve.png"title="Reserver">
+                </a>
+                <a href="liste.php">
+                    <img width="20" height="20" src="img/liste.png" title="Lister">
+                </a>
+                <a class="btn " href="profille.php">
+                    <img width="20" height="20" src="img/user.png" title="Mon Profille">
+                </a>
+                <a class="btn " href="deconnection.php">
+                    <img width="20" height="20" src="img/logout.png"title="Déconnecter">
+                </a>
+            </div>
+            <p>L'heure actuelle est: <span id="heure"></span></p>
+
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-6 mb-4 mb-lg-0">
                     <div class="card mb-3" style="border-radius: .5rem;">
@@ -62,7 +82,7 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
                                     <h6>Information</h6>
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
-                                        <div class="col-6 mb-3">
+                                        <div class="col-10 mb-5">
                                             <h6>Email</h6>
                                             <p class="text-muted"><?php echo $row['email'];?></p>
                                             <h6>Date of brith</h6>
@@ -70,11 +90,7 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
                                         </div>
 
                                     </div>
-                                    <div class="position">
-                                        <a href="apres_login.php">
-                                            <img width="30" height="30" src="img/back.png" alt="">
-                                        </a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -83,7 +99,7 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
             </div>
         </div>
 
-    </section>
-</div>
+
+
 </body>
 </html>

@@ -42,6 +42,8 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
             float:top;
         }
     </style>
+    <script src="file.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script>
         function  ahmed()
         {
@@ -50,20 +52,30 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
     </script>
 </head>
 <body>
-<div class="containner">
-    <section class="vh-100" style="background-color: #f4f5f7;">
-        <div class="container py-5 h-100">
+<div class="container">
+
+    <div class="position">
+        <a class="btn " href="reserver.php">
+            <img width="20" height="20" src="img/reserve.png"title="Reserver">
+        </a>
+        <a class="btn " href="home.php">
+            <img width="20" height="20" src="img/home.png"title="Home">
+        </a>
+        <a href="liste.php">
+            <img width="20" height="20" src="img/liste.png" title="Lister">
+        </a>
+        <a class="btn " href="profille.php">
+            <img width="20" height="20" src="img/user.png" title="Mon Profille">
+        </a>
+        <a class="btn " href="deconnection.php">
+            <img width="20" height="20" src="img/logout.png"title="Déconnecter">
+        </a>
+    </div>
+    <p>L'heure actuelle est: <span id="heure"></span></p>
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-6 mb-4 mb-lg-0">
                     <div class="card mb-3" style="border-radius: .5rem;">
                         <div class="row g-0">
-                            <div class="col-md-4 gradient-custom text-center text-white"
-                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                                     alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                                <!-- name --> <h5><?php echo $name ?></h5>
-                                <i class="far fa-edit mb-5"></i>
-                            </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">
                                     <h6>Information</h6>
@@ -81,9 +93,11 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
                                     </div>
                                     <div class="position">
                                         <img  onclick="print();" class="btn " width="50" height="50" src="img/print.png" alt=""></img>
-                                        <a href="apres_login.php">
-                                            <img width="30" height="30" src="img/back.png" alt="">
-                                        </a>
+                                         <div class="position">
+                                             <a href="liste.php">
+                                                 <img src="img/back.png" alt="">
+                                             </a>
+                                         </div>   
                                     </div>
                                 </div>
                             </div>
@@ -91,9 +105,7 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
                     </div>
                 </div>
             </div>
-        </div>
 
-    </section>
 </div>
 </body>
 </html>

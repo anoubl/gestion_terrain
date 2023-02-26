@@ -54,49 +54,48 @@ $time=[
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-  .position
-  {
-      float: right;
-  }
-
-    </style>
+    <script src="file.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script >
 
         function reda() {
+            var fermer = document.getElementById("fermer");
             var table = document.getElementById("myTable");
             if (table.style.visibility === "visible") {
                 table.style.visibility ="hidden" ;
+                fermer.style.visibility="hidden";
             }
         }
         function anoubl() {
-            var table = document.getElementById("submit");
-            if (table.style.visibility === "hidden") {
-                table.style.visibility ="visible" ;
-            }
-            return true;
+            var fermer = document.getElementById("fermer");
+             fermer.style.visibility="visible";
         }
+console.log(anoubl());
     </script>
-
 </head>
 <body>
 
 <div class="container">
 <div class="position">
+    <p>L'heure actuelle est: <span id="heure"></span></p>
+
+    <a class="btn " href="home.php">
+        <img width="20" height="20" src="img/home.png"title="Home">
+    </a>
+    <a class="btn " href="reserver.php">
+        <img width="20" height="20" src="img/reserve.png"title="Reserver">
+    </a>
     <a href="liste.php">
-        <img width="20" height="20" src="img/liste.png" alt="">
+        <img width="20" height="20" src="img/liste.png" title="Lister">
     </a>
     <a class="btn " href="profille.php">
-        <img width="20" height="20" src="img/user.png" alt="">
+        <img width="20" height="20" src="img/user.png" title="Mon Profille">
     </a>
     <a class="btn " href="deconnection.php">
-        <img width="20" height="20" src="img/logout.png" alt="">
+        <img width="20" height="20" src="img/logout.png"title="Déconnecter">
     </a>
 </div>
-
-
-
-<form action="#" method="POST">
+<form  action="#" method="POST">
     <select name="option" class="form-select" aria-label="Default select example">
         <?php
         $sql="SELECT * FROM `terrain`";
@@ -115,12 +114,14 @@ $time=[
         <input type="date" name="date" class="form-control" id="validationTooltip01"  required>
     </div>
     <br>
-    <button  id="submit" class="btn btn-primary"   type="submit" name="submit">Afficher</button>
+    <button onclick="anoubl();" id="submit" class="btn btn-primary"   type="submit" name="submit">Afficher</button>
 </form>
-    <div class="position">
-    <a class="btn" onclick="reda();"  href="#">
-        <img src="img/close%20(1).png" class="position" width="50" height="50" alt="">
-    </a>
+
+
+    <div id="fermer"  style="visibility: hidden" class="position">
+        <a  class="btn" onclick="reda();"  href="#">
+            <img src="img/close%20(1).png" class="position" width="50" height="50" alt="">
+        </a>
     </div>
 <?php
 if(isset($_POST['submit']) and isset($_POST['date']))
@@ -128,6 +129,7 @@ if(isset($_POST['submit']) and isset($_POST['date']))
     $id=$_POST['option'];
     $date=$_POST['date'];
 ?>
+
 <table  id="myTable" style="visibility: visible;" class="table align-middle mb-0 bg-white">
 <thead>
 <th>Time</th>
@@ -148,7 +150,7 @@ if(isset($_POST['submit']) and isset($_POST['date']))
         if($result==0)
         {
             ?>
-            <td ><a class="btn btn-success" href="cassucces.php?time=<?php echo $time[$i];?>">Disponible</a></td>
+            <td ><a class="btn btn-success" href="cassucces.php?time=<?php echo $time[$i];?>&date=<?php echo $date;?>">Disponible</a></td>
         <?php
         }
         else
@@ -167,6 +169,13 @@ if(isset($_POST['submit']) and isset($_POST['date']))
     ?>
     </tbody>
 </table>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Anoubl and Ziyani
+        </div>
+        <!-- Copyright -->
+    </footer>
 </div>
 </body>
 </html>

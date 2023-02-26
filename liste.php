@@ -4,7 +4,6 @@ require 'models/connection.php';
 $conne=new connection();
 $con=$conne->connection();
 $id=$_SESSION['id'];
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,11 +25,30 @@ $id=$_SESSION['id'];
             text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="file.js"></script>
 </head>
 <body>
 
 <div class="container">
-    <h1 class="text-primary">La liste des reservation</h1>
+    <p class="text-center">L'heure actuelle est: <span id="heure"></span></p>
+    <div class="position">
+        <a class="btn " href="home.php">
+            <img width="20" height="20" src="img/home.png"title="Home">
+        </a>
+        <a href="liste.php">
+            <img width="20" height="20" src="img/liste.png" title="Lister">
+        </a>
+        <a class="btn " href="reserver.php">
+            <img width="20" height="20" src="img/reserve.png"title="Reserver">
+        </a>
+        <a class="btn " href="profille.php">
+            <img width="20" height="20" src="img/user.png" title="Mon Profille">
+        </a>
+        <a class="btn " href="deconnection.php">
+            <img width="20" height="20" src="img/logout.png"title="Déconnecter">
+        </a>
+    </div>
     <table class="table align-middle mb-0 bg-white">
         <thead>
         <th>Full Name</th>
@@ -62,11 +80,7 @@ $id=$_SESSION['id'];
         <?php }?>
         </tbody>
     </table>
-    <div class="position">
-        <a href="apres_login.php">
-            <img width="50" height="50" src="img/back.png" alt="">
-        </a>
-    </div>
+
 </div>
 </body>
 </html>

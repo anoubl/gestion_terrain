@@ -8,11 +8,12 @@ if(isset($_GET['time']))
     $conne=new connection();
     $con=$conne->connection();
     $time=$_GET['time'];
-    $sql="INSERT INTO `reservation`(`id`, `date_reserve`, `user_id`, `terrain_id`, `heure_debut`) VALUES (null,sysdate(),'$id',1,'$time')";
+    $date=$_GET['date'];
+    $sql="INSERT INTO `reservation`(`id`, `date_reserve`, `user_id`, `terrain_id`, `heure_debut`) VALUES (null,'$date','$id',1,'$time')";
     $resultat=$con->exec($sql);
    if($resultat)
    {
-       header("location:apres_login.php");
+       header("location:reserver.php");
    }
    else
    {
