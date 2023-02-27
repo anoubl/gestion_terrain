@@ -1,18 +1,6 @@
 <?php
 session_start();
-$name=$_SESSION['fullname'];
-if($_SESSION['valeur']==true)
-{
-    echo "
-      <div class='container'>
-    <div class='alert alert-success alert-dismissable'>
-    <a class='close' data-dismiss='alert' aria-label='close'>×</a>
-    <strong>bonjour $name</strong>
-</div>
-        
-        ";
-    $_SESSION['valeur']=false;
-}
+
 
 require 'models/connection.php';
 $conne=new connection();
@@ -54,30 +42,13 @@ $time=[
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="file.js"></script>
+    <script type="text/javascript" src="file.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script >
-
-        function reda() {
-            var fermer = document.getElementById("fermer");
-            var table = document.getElementById("myTable");
-            if (table.style.visibility === "visible") {
-                table.style.visibility ="hidden" ;
-                fermer.style.visibility="hidden";
-            }
-        }
-        function anoubl() {
-            var fermer = document.getElementById("fermer");
-             fermer.style.visibility="visible";
-        }
-console.log(anoubl());
-    </script>
 </head>
 <body>
 
 <div class="container">
 <div class="position">
-    <p>L'heure actuelle est: <span id="heure"></span></p>
 
     <a class="btn " href="home.php">
         <img width="20" height="20" src="img/home.png"title="Home">
@@ -95,6 +66,9 @@ console.log(anoubl());
         <img width="20" height="20" src="img/logout.png"title="Déconnecter">
     </a>
 </div>
+
+
+
 <form  action="#" method="POST">
     <select name="option" class="form-select" aria-label="Default select example">
         <?php
@@ -114,61 +88,74 @@ console.log(anoubl());
         <input type="date" name="date" class="form-control" id="validationTooltip01"  required>
     </div>
     <br>
-    <button onclick="anoubl();" id="submit" class="btn btn-primary"   type="submit" name="submit">Afficher</button>
+    <button  onclick="anoubl();" id="submit" class="btn btn-primary"   type="submit" name="submit">Afficher</button>
 </form>
 
 
-    <div id="fermer"  style="visibility: hidden" class="position">
-        <a  class="btn" onclick="reda();"  href="#">
-            <img src="img/close%20(1).png" class="position" width="50" height="50" alt="">
-        </a>
-    </div>
 <?php
 if(isset($_POST['submit']) and isset($_POST['date']))
 {
     $id=$_POST['option'];
     $date=$_POST['date'];
 ?>
-
-<table  id="myTable" style="visibility: visible;" class="table align-middle mb-0 bg-white">
-<thead>
-<th>Time</th>
-<th>Etat</th>
-</thead>
-    <tbody> <?php
-    for($i=0;$i<15;$i++)
-    {
-    ?>
-    <tr >
-
-            <td><?php echo $time[$i]."-".$time[$i+1];?></td>
-    <td>
-        <?php
-        $sql="SELECT * FROM `reservation` WHERE 	terrain_id='$id' and date_reserve='$date'  and  heure_debut like concat('%','$time[$i]','%');";
-        $resultat=$con->query($sql);
-        $result=$resultat->rowcount();
-        if($result==0)
+      <div id="id1" style="visibility:">
+        <div   class="position">
+            <a  class="btn" onclick="reda();"  href="#">
+                <img src="img/close%20(1).png" class="position" width="50" height="50" alt="">
+            </a>
+        </div>
+    <table    class="table align-middle mb-0 bg-white">
+        <thead>
+        <th>Time</th>
+        <th>Etat</th>
+        </thead>
+        <tbody> <?php
+        for($i=0;$i<15;$i++)
         {
             ?>
-            <td ><a class="btn btn-success" href="cassucces.php?time=<?php echo $time[$i];?>&date=<?php echo $date;?>">Disponible</a></td>
-        <?php
-        }
-        else
-        {
-        ?>
-      <td class="table-danger">occuper</td>
-            <?php
-        }
-        ?>
+            <tr >
 
-    </td>
-    </tr>
+                <td><?php echo $time[$i]."-".$time[$i+1];?></td>
+                <td>
+                    <?php
+                    $sql="SELECT * FROM `reservation` WHERE 	terrain_id='$id' and date_reserve='$date'  and  heure_debut like concat('%','$time[$i]','%');";
+                    $resultat=$con->query($sql);
+                    $result=$resultat->rowcount();
+                    if($result==0)
+                    {
+                    ?>
+                <td ><a class="btn btn-success" href="cassucces.php?time=<?php echo $time[$i];?>&date=<?php echo $date;?>">Disponible</a></td>
+                <?php
+                }
+                else
+                {
+                    ?>
+                    <td class="table-danger">occuper</td>
+                    <?php
+                }
+                ?>
+
+                </td>
+            </tr>
             <?php
-    }
-    }
-    ?>
-    </tbody>
-</table>
+        }
+        }
+        ?>
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
     <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

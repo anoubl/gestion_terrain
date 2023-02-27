@@ -64,7 +64,6 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
                     <img width="20" height="20" src="img/logout.png"title="Déconnecter">
                 </a>
             </div>
-            <p>L'heure actuelle est: <span id="heure"></span></p>
 
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-6 mb-4 mb-lg-0">

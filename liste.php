@@ -31,7 +31,6 @@ $id=$_SESSION['id'];
 <body>
 
 <div class="container">
-    <p class="text-center">L'heure actuelle est: <span id="heure"></span></p>
     <div class="position">
         <a class="btn " href="home.php">
             <img width="20" height="20" src="img/home.png"title="Home">

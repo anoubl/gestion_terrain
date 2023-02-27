@@ -71,7 +71,6 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
             <img width="20" height="20" src="img/logout.png"title="Déconnecter">
         </a>
     </div>
-    <p>L'heure actuelle est: <span id="heure"></span></p>
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-6 mb-4 mb-lg-0">
                     <div class="card mb-3" style="border-radius: .5rem;">
@@ -81,7 +80,7 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
                                     <h6>Information</h6>
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
-                                        <div class="col-6 mb-3">
+                                        <div class="col-8 mb-3">
                                             <h6>date reservation</h6>
                                             <p class="text-muted"><?php echo $dr ?></p>
                                             <h6>Hour reservation</h6>
