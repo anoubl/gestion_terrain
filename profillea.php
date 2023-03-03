@@ -35,7 +35,6 @@ $id=$_SESSION['id'];
             width: 20px;
             height: 20px;
         }
-
     </style>
     <link rel="stylesheet" href="style.css">
     <script src="file.js"></script>
@@ -52,24 +51,17 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
 </div>
 
         <div class="container py-5 h-100">
-            <div class="position">
-
-                <a class="btn " href="home.php">
-                    <img width="20" height="20" src="img/home.png"title="Home">
-                </a>
-                <a class="btn " href="reserver.php">
-                    <img width="20" height="20" src="img/reserve.png"title="Reserver">
-                </a>
-                <a href="liste.php">
-                    <img width="20" height="20" src="img/liste.png" title="Lister">
-                </a>
-                <a class="btn " href="profille.php">
-                    <img width="20" height="20" src="img/user.png" title="Mon Profille">
-                </a>
-                <a class="btn " href="deconnection.php">
-                    <img width="20" height="20" src="img/logout.png"title="Déconnecter">
-                </a>
-            </div>
+        <div class="position">
+        <a class="btn " href="">
+            <img width="20" height="20" src="img/ajouter.png" title="Ajouter terrain">
+        </a>
+        <a class="btn " href="profillea.php">
+            <img width="20" height="20" src="img/user.png" title="Mon Profille">
+        </a>
+        <a class="btn " href="deconnection.php">
+            <img width="20" height="20" src="img/logout.png"title="Déconnecter">
+        </a>
+    </div>
 
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-6 mb-4 mb-lg-0">
