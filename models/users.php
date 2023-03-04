@@ -104,6 +104,62 @@ class users extends connection
         }
         return -1;
     }
+    public function nombre()
+    {
+        $con=$this->connection();
+        $sql="select count(*) as nombre from users where role!=1";
+        $resultat=$con->query($sql);
+        if($resultat->rowcount()>0)
+        {
+            $row=$resultat->fetchall();
+            foreach($row as $row)
+            {
+                return $row['nombre'];
+            }
+        }
+        return -1;
+    }
+    public function nombre_terrain()
+    {
+        $con=$this->connection();
+        $sql="select count(*) as nombre from terrain";
+        $resultat=$con->query($sql);
+        if($resultat->rowcount()>0)
+        {
+            $row=$resultat->fetchall();
+            foreach($row as $row)
+            {
+                return $row['nombre'];
+            }
+        }
+        return -1;
+    }
+    public function nombre_adm()
+    {
+        $con=$this->connection();
+        $sql="select count(*) as nombre from users where role=1";
+        $resultat=$con->query($sql);
+        if($resultat->rowcount()>0)
+        {
+            $row=$resultat->fetchall();
+            foreach($row as $row)
+            {
+                return $row['nombre'];
+            }
+        }
+        return -1;
+    }
+    public function  add1($prenom,$nom,$dob,$email,$password,$chemin)
+{
+    $con=$this->connection();
+    $sql="INSERT INTO `users`(`id`, `prenom`, `nom`, `dob`, `email`, `password`,`file`,`role`) VALUES(null,'$prenom','$nom','$dob','$email','$password','$chemin',1) ";
+    $result=$con->exec($sql);
+    if($result)
+    {
+        return 1;
+    }
+    return  -1;
+}
 public function  add($prenom,$nom,$dob,$email,$password,$chemin)
 {
     $con=$this->connection();
@@ -115,6 +171,7 @@ public function  add($prenom,$nom,$dob,$email,$password,$chemin)
     }
     return  -1;
 }
+
 public  function  show()
 {
     $con=$this->connection();
@@ -122,6 +179,7 @@ $sql="SELECT * FROM `users`";
 $resultat=$con->query($sql);
 return $resultat->fetchall();
 }
+
 public  function  delete($id)
 {
     $con=$this->connection();

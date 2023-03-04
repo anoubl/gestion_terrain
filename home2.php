@@ -1,6 +1,11 @@
 
 <?php
 session_start();
+require "models\users.php";
+$users=new users();
+$nombre=$users->nombre();
+$nombre_t=$users->nombre_terrain();
+$nombre_a=$users->nombre_adm();
 $name=$_SESSION['fullname'];
 if($_SESSION['valeur']==true)
 {
@@ -49,13 +54,45 @@ if($_SESSION['valeur']==true)
         }
         setInterval(afficherHeure, 1000);
     </script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+     #left {
+  float: left;
+  margin-right: 17px;    
+}
+
+#right {
+  float: right;
+}
+        .content{
+	transition: margin-left 300ms;
+	margin: 10px;
+    display: flex;
+    white-space: pre;
+align-items: center;
+justify-content: center;
+}
+.card{
+    background-color:bisque;
+}
+    </style>
 </head>
 <body>
     <div class="container">
     <div class="position">
-        <a class="btn " href="">
+        <a class="btn " href="home2.php">
+            <img width="20" height="20" src="img/home.png" title="Home">
+        </a>
+        <a class="btn " href="creer_administrateur.php">
+            <img width="20" height="20" src="img/administrateur.png" title="Ajouter un administrateur">
+        </a>
+        <a class="btn " href="listerusers.php">
+            <img width="20" height="20" src="img/users.png" title="La liste des utilisateurs">
+        </a>
+        <a class="btn " href="ajouterterain.php">
             <img width="20" height="20" src="img/ajouter.png" title="Ajouter terrain">
+        </a>
+        <a class="btn " href="afficherlesterrains.php">
+            <img width="20" height="20" src="img/liste.png" title="Lister les terrains">
         </a>
         <a class="btn " href="profillea.php">
             <img width="20" height="20" src="img/user.png" title="Mon Profille">
@@ -64,6 +101,38 @@ if($_SESSION['valeur']==true)
             <img width="20" height="20" src="img/logout.png"title="Déconnecter">
         </a>
     </div>
-    </div>
+
+<div class="content">
+
+<div class="card" id="left" style="width: 18rem;">
+  <img class="card-img-top" style="width: 20px; height:20px;" src="img/administrateur.png" alt="Card image cap">
+  <div class="card-body">
+  <h5 class="card-title"><?php  echo $nombre_a ?></h5>
+  <p>Administrateurs</p>
+  </div>
+</div>
+
+
+<div class="card" id="left" style="width: 18rem;">
+  <img class="card-img-top" style="width: 20px; height:20px;" src="img/user.png" alt="Card image cap">
+  <div class="card-body">
+  <h5 class="card-title"><?php  echo $nombre; ?></h5>
+  <p>Utilisateurs</p>
+  </div>
+</div>
+
+<div class="card" id="right" style="width: 18rem;">
+  <img class="card-img-top" style="width: 20px; height:20px;" src="img/ball.png" alt="Card image cap">
+  <div class="card-body">
+  <h5 class="card-title"><?php  echo $nombre_t; ?></h5>
+  <p>Terrains</p>
+  </div>
+</div>
+</div>
+
+<?php
+
+require "footer.php";
+?>
 </body>
 </html>

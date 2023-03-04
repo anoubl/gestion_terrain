@@ -36,7 +36,6 @@ $id=$_SESSION['id'];
             height: 20px;
         }
     </style>
-    <link rel="stylesheet" href="style.css">
     <script src="file.js"></script>
 </head>
 <body>
@@ -52,8 +51,20 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
 
         <div class="container py-5 h-100">
         <div class="position">
-        <a class="btn " href="">
+        <a class="btn " href="home2.php">
+            <img width="20" height="20" src="img/home.png" title="Home">
+        </a>
+        <a class="btn " href="#">
+            <img width="20" height="20" src="img/administrateur.png" title="Ajouter un administrateur">
+        </a>
+        <a class="btn " href="listerusers.php">
+            <img width="20" height="20" src="img/users.png" title="La liste des utilisateurs">
+        </a>
+        <a class="btn " href="ajouterterain.php">
             <img width="20" height="20" src="img/ajouter.png" title="Ajouter terrain">
+        </a>
+        <a class="btn " href="afficherlesterrains.php">
+            <img width="20" height="20" src="img/liste.png" title="Lister les terrains">
         </a>
         <a class="btn " href="profillea.php">
             <img width="20" height="20" src="img/user.png" title="Mon Profille">
@@ -116,7 +127,10 @@ $row = $resultat->fetch(PDO::FETCH_ASSOC);;
             </div>
         </div>
 
+        <?php
 
+require "footer.php";
+?>
 
 </body>
 </html>

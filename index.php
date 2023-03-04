@@ -87,5 +87,9 @@ if(isset($_GET['tst']))
             </a>
         </form>
     </div>
+    <?php
+
+require "footer.php";
+?>
     </body>
     </html>
