@@ -10,6 +10,7 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
     $dr=$_GET['dr'];
     $hr=$_GET['hr'];
     $sn=$_GET['sn'];
+    $prix=$_GET['price'];
 }
 ?>
 <!doctype html>
@@ -87,6 +88,8 @@ if(isset($_GET['hr']) and isset($_GET['sn']) and isset($_GET['dr']) )
                                             <p class="text-muted"> <?php echo $hr?></p>
                                             <h6>Stade name</h6>
                                             <p class="text-muted"> <?php echo $sn?></p>
+                                            <h6>Price</h6>
+                                            <p class="text-muted"> <?php echo $prix?></p>
                                         </div>
 
                                     </div>

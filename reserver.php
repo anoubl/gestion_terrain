@@ -93,7 +93,7 @@ $time=[
 
 
 <?php
-if(isset($_POST['submit']) and isset($_POST['date']))
+if(isset($_POST['submit']) and isset($_POST['date']) and isset ($_POST['option']))
 {
     $id=$_POST['option'];
     $date=$_POST['date'];

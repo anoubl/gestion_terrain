@@ -203,5 +203,16 @@ public  function  search($id)
     {
         header("Location:$name");
     }
+    public function  reservation($id)
+    {
+        $con=$this->connection();
+        $sql="SELECT COUNT(*) as nombre FROM reservation WHERE user_id='$id';";
+        $result=$con->query($sql);
+        $row=$result->fetchAll();
+        foreach($row as $row)
+        {
+            return $row['nombre'];
+        }
+    }
 
 }

@@ -58,7 +58,7 @@ $id=$_SESSION['id'];
         </thead>
         <tbody>
         <?php
-        $sql="SELECT reservation.id,reservation.heure_debut,reservation.date_reserve,terrain.name FROM `reservation`,terrain WHERE reservation.terrain_id=terrain.id and reservation.user_id='$id';";
+        $sql="SELECT reservation.id,reservation.heure_debut,reservation.date_reserve,terrain.name,terrain.prix FROM `reservation`,terrain WHERE reservation.terrain_id=terrain.id and reservation.user_id='$id';";
         $resultat=$con->query($sql);
         $row=$resultat->fetchall();
         foreach ($row as $row)
@@ -72,7 +72,7 @@ $id=$_SESSION['id'];
                 <?php echo $row['heure_debut'];     ?>
             </td>
             <td>
-                <a href="ticket.php?sn=<?php echo $row['name'];?>&hr=<?php echo$row['heure_debut'];?>&dr=<?php echo$row['date_reserve'];?>" ><img width="20" height="20" src="img/print.png" alt=""  ></a>
+                <a href="ticket.php?sn=<?php echo $row['name'];?>&hr=<?php echo$row['heure_debut'];?>&dr=<?php echo$row['date_reserve'];?>&price=<?php echo$row['prix'];?>" ><img width="20" height="20" src="img/print.png" alt=""  ></a>
             </td>
 
         </tr>
